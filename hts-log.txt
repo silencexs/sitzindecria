@@ -1,0 +1,19 @@
+HTTrack3.50-4 launched on Sat, 26 Sep 2026 23:02:46 at http://pcesp.duckdns.org +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2%f#f -F "Mozilla/5.0 (compatible; HTTrack; +https://www.httrack.com/)" -%F "<!-- Mirrored from {url} by HTTrack Website Copier/3.x [XR&CO], {date} -->" -%l "pt_BR, en, *" http://pcesp.duckdns.org -O1 "C:\Meus Sites\Policia Federal site" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+23:02:46	Warning: 	Moved Permanently for pcesp.duckdns.org/robots.txt
+23:02:46	Warning: 	Warning moved treated for pcesp.duckdns.org/robots.txt (real one is https://pcesp.duckdns.org/robots.txt)
+23:02:47	Warning: 	Moved Permanently for pcesp.duckdns.org/
+23:02:47	Warning: 	Redirect to a same-file alias, fetching real content: pcesp.duckdns.org/ -> https://pcesp.duckdns.org/
+23:02:47	Warning: 	Warning moved treated for pcesp.duckdns.org/ (real one is https://pcesp.duckdns.org/)
+23:02:48	Warning: 	File not parsed, looks like binary: https://pcesp.duckdns.org/robots.txt
+23:02:56	Warning: 	File not parsed, looks like binary: https://pcesp.duckdns.org/robots.txt
+
+HTTrack Website Copier/3.50-4 mirror complete in 1 minutes 17 seconds : 42 links scanned, 38 files written (331533988 bytes overall) [330675851 bytes received at 4294491 bytes/sec], 1298717 bytes transferred using HTTP compression in 36 files, ratio 28%, 6.0 requests per connection
+(No errors, 7 warnings, 0 messages)
+(Some links above the start directory were not mirrored. Pass -B (--can-go-up-and-down) to mirror them.)

@@ -1,0 +1,12 @@
+{
+  "name": "policia-civil-offline",
+  "version": "1.0.0",
+  "description": "Offline mirror for Policia Civil SP Legacy Roleplay",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
