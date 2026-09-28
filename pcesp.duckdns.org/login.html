@@ -1,33 +1,182 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
-<head> <meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Central do Escrivão — Polícia Federal</title>
   
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Autenticação de Servidores â€” Polícia Civil SP Â· Legacy Roleplay</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/logo.png">
   <link rel="shortcut icon" type="image/png" href="assets/logo.png">
-  <meta name="theme-color" content="#002b66">
+  <meta name="theme-color" content="#0a1829">
+  
   <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/account-access.css">
   <script src="js/offline-paths.js"></script>
-  <script src="js/security-guardeb77.js?v=4.6"></script>
 </head>
 <body>
+  <!-- Cabeçalho Institucional Oficial -->
   <div id="site-header-placeholder"></div>
-  <div class="login-wrapper"> <div class="login-card"> <div class="login-card-header"> <img src="assets/logo.png" alt="Brasão Oficial da Polícia Civil SP" class="login-logo"> <div class="login-title">POLÍCIA CIVIL</div> <div class="login-subtitle">ESTADO DE SÃO PAULO â€” SISP v4.0</div> </div> <div class="login-card-body"> <div class="tab-nav"> <button class="tab-btn active" id="tab-login-btn" onclick="switchLoginTab(&quot;login&quot;)"> <i class="fa-solid fa-right-to-bracket"></i> Entrar </button> <button class="tab-btn" id="tab-cadastro-btn" onclick="switchLoginTab(&quot;cadastro&quot;)"> <i class="fa-solid fa-user-plus"></i> Novo Cadastro </button> </div> <div class="tab-pane active" id="tab-login"> <div id="discord-login-notice" class="access-notice" role="status" hidden=""></div> <button type="button" id="discord-login" class="access-discord"> <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4a20 20 0 0 0-5-1.5l-.6 1.2a18.6 18.6 0 0 0-5.4 0l-.6-1.2a20 20 0 0 0-5 1.5C.5 9.2-.3 13.9.1 18.5a20.2 20.2 0 0 0 6.1 3.1l1.3-2.1-1.9-.9.5-.4c3.8 1.8 8 1.8 11.8 0l.5.4-1.9.9 1.3 2.1a20.2 20.2 0 0 0 6.1-3.1c.5-5.3-.8-10-3.6-14.1ZM8 15.7c-1.2 0-2.1-1.1-2.1-2.5s.9-2.5 2.1-2.5 2.1 1.1 2.1 2.5-.9 2.5-2.1 2.5Zm8 0c-1.2 0-2.1-1.1-2.1-2.5s.9-2.5 2.1-2.5 2.1 1.1 2.1 2.5-.9 2.5-2.1 2.5Z"></path></svg> Entrar com Discord </button> <p id="discord-login-help" class="access-hint">Entre com sua conta autorizada do Discord em 1 clique.</p> <div class="access-divider"><span>ou entre com sua senha</span></div> <form id="form-login" onsubmit="handleLogin(event)"> <div class="form-group"> <label class="form-label"><i class="fa-solid fa-user"></i> ID / Passaporte no Jogo ou Login</label> <input id="login-passport" class="form-control" placeholder="Digite seu ID do jogo (ex: 13806) ou usuário" required="" autocomplete="username"> </div> <div class="form-group"> <label class="form-label"><i class="fa-solid fa-lock"></i> Senha</label> <input type="password" id="login-senha" class="form-control" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required="" autocomplete="current-password"> </div> <button type="submit" class="btn btn-primary" style="width:100%;margin-top:.5rem" id="btn-login"> <i class="fa-solid fa-right-to-bracket"></i> Acessar o Portal SISP </button> <div id="login-error" class="alert alert-danger" style="margin-top:.75rem;display:none"></div> </form> <button type="button" id="forgot-password" class="access-text-button" aria-expanded="false" aria-controls="password-recovery">Esqueci minha senha</button> <section id="password-recovery" class="access-recovery" hidden=""> <h2>Recuperar pelo Discord</h2> <p>Informe seu login ou CPF/ID. O bot enviará um link privado ao Discord confirmado na sua conta.</p> <form id="recovery-form"> <label for="recovery-identifier">Login ou CPF/ID do portal</label> <input id="recovery-identifier" class="form-control" required="" maxlength="120" autocomplete="username"> <button class="btn access-recovery-submit" id="recovery-submit" type="submit">Enviar link no privado</button> </form> <p id="recovery-feedback" class="access-notice" role="status" hidden=""></p> <p class="access-hint">Válido por 15 minutos e para um único uso. Habilite mensagens diretas do servidor no Discord. Nunca compartilhe o link.</p> <p class="access-hint">Ainda não confirmou seu Discord? Entre com a senha e vincule em <a href="espelho-indisponivel.html">Meu perfil</a>. Se não consegue entrar, procure a administração.</p> </section> </div> <div class="tab-pane" id="tab-cadastro"> <form id="form-cadastro" onsubmit="handleCadastro(event)"> <div class="form-group"> <label class="form-label">Nome Completo do Personagem *</label> <input id="cad-nome" class="form-control" placeholder="Ex: Dean Prado" required=""> </div> <div class="form-group"> <label class="form-label">ID / Passaporte no Servidor (FiveM) *</label> <input id="cad-passport" class="form-control" placeholder="Ex: 13806 (Apenas números do passaporte)" required=""> </div> <div class="form-group"> <label class="form-label" for="cad-vinculo" hidden="">Tipo de acesso *</label> <select id="cad-vinculo" class="form-control" hidden=""> <option value="CIDADAO">Cidadão</option> <option value="PARCEIRO"> Integrante de instituição parceira </option> </select> <small hidden="" style="display:block;color:var(--gray-500);margin-top:.35rem">Esta escolha não libera recursos internos da Polícia Civil.</small> </div> <div class="form-group" id="cad-corporacao-group" hidden=""> <label class="form-label" for="cad-corporacao">Corporação *</label> <select id="cad-corporacao" class="form-control"> <option value="">Selecione sua corporação</option> <option>Polícia Federal</option> <option>Polícia Rodoviária Federal</option> <option>Polícia Militar</option> <option>Polícia Penal</option> <option>Corpo de Bombeiros</option> <option>SAMU</option> <option>Outra instituição autorizada</option> </select> <small style="display:block;color:var(--gray-500);margin-top:.35rem">O acesso ao canal institucional é liberado para contato entre corporações.</small> </div> <div class="form-group"> <label class="form-label">Senha *</label> <input type="password" id="cad-senha" class="form-control" placeholder="Mínimo 4 caracteres" required="" minlength="4"> </div> <div class="form-group"> <label class="form-label">Confirmar Senha *</label> <input type="password" id="cad-senha2" class="form-control" placeholder="Repita a senha" required=""> </div> <button type="submit" class="btn btn-secondary" style="width:100%;margin-top:.5rem" id="btn-cadastro"> <i class="fa-solid fa-user-plus"></i> Criar Conta de Servidor </button> <div id="cad-error" class="alert alert-danger" style="margin-top:.75rem;display:none"></div> <div id="cad-success" class="alert alert-success" style="margin-top:.75rem;display:none"></div> </form> </div> <p style="font-size:.76rem;color:var(--gray-600);line-height:1.5;margin:1rem 0 0"> <i class="fa-solid fa-lock" style="color:var(--pc-blue)"></i> Use uma senha exclusiva para este portal. Nunca use a mesma senha do jogo. </p> <p style="font-size:.76rem;color:var(--gray-600);line-height:1.5;margin:.5rem 0 0"> Ao continuar, você concorda com a <a href="privacidade.html">Política de Privacidade</a>. </p> <div class="login-divider">ou</div> <a href="download.html" class="btn btn-outline-gold" style="width:100%;text-align:center;margin-bottom:.65rem;border-color:rgba(212,163,89,.5);color:#d4a359" title="Baixar aplicativo desktop oficial para Windows (.exe)"> <i class="fa-brands fa-windows" style="margin-right:.4rem"></i> Baixar Aplicativo Desktop (.EXE) </a> <a href="index.html" class="btn btn-outline-blue" style="width:100%;text-align:center"> <i class="fa-solid fa-house"></i> Acessar como Visitante </a> <p style="font-size:.75rem;color:var(--gray-500);text-align:center;margin-top:1rem"> Cidadãos, instituições parceiras e policiais usam acessos adequados ao próprio perfil. </p> </div> </div> </div> 
-      
 
+  <!-- Estrutura Principal da Tela de Login -->
+  <main class="escrivao-login-wrapper">
+    <div class="escrivao-login-card">
+      <div class="escrivao-card-header">
+        <img src="assets/logo.png" alt="Brasão Oficial da Polícia Federal" class="escrivao-logo">
+        <div class="escrivao-dept-tag">
+          <i class="fa-solid fa-shield-halved"></i> Polícia Federal
+        </div>
+        <h1 class="escrivao-title">CENTRAL DO ESCRIVÃO</h1>
+        <div class="escrivao-subtitle">Sistema interno</div>
+      </div>
+
+      <div class="escrivao-card-body">
+        <!-- Container Dinâmico para Mensagens de Erro ou Alertas -->
+        <div id="login-alerts" role="alert" style="display: none;"></div>
+
+        <!-- OPÇÃO 1: PRINCIPAL — ENTRAR COM DISCORD -->
+        <a href="/auth/discord" id="btn-discord-login" class="btn-discord-escrivao" title="Entrar com sua conta Discord autorizada">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.3 4.4a20 20 0 0 0-5-1.5l-.6 1.2a18.6 18.6 0 0 0-5.4 0l-.6-1.2a20 20 0 0 0-5 1.5C.5 9.2-.3 13.9.1 18.5a20.2 20.2 0 0 0 6.1 3.1l1.3-2.1-1.9-.9.5-.4c3.8 1.8 8 1.8 11.8 0l.5.4-1.9.9 1.3 2.1a20.2 20.2 0 0 0 6.1-3.1c.5-5.3-.8-10-3.6-14.1ZM8 15.7c-1.2 0-2.1-1.1-2.1-2.5s.9-2.5 2.1-2.5 2.1 1.1 2.1 2.5-.9 2.5-2.1 2.5Zm8 0c-1.2 0-2.1-1.1-2.1-2.5s.9-2.5 2.1-2.5 2.1 1.1 2.1 2.5-.9 2.5-2.1 2.5Z"></path>
+          </svg>
+          Entrar com Discord
+        </a>
+
+        <!-- OPÇÃO 2: SECUNDÁRIA — BAIXAR APLICATIVO DESKTOP (.EXE) -->
+        <button type="button" id="btn-desktop-app" class="btn-desktop-escrivao" onclick="mostrarAvisoDesktop()" title="Baixar aplicativo desktop oficial para Windows (.exe)">
+          <i class="fa-brands fa-windows"></i>
+          Baixar Aplicativo Desktop (.EXE)
+        </button>
+
+        <!-- Rodapé do Card com Informativo de Segurança -->
+        <div class="escrivao-card-footer">
+          <div class="escrivao-security-notice">
+            <i class="fa-solid fa-lock"></i>
+            <span>Acesso restrito exclusivamente aos escrivães da Polícia Federal</span>
+          </div>
+        </div>
+
+        <!-- Box Auxiliar para Desenvolvimento / Testes Locais -->
+        <div id="dev-mode-hint" class="escrivao-dev-box" style="display: none;"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé Institucional Oficial -->
   <div id="site-footer-placeholder"></div>
-  <script src="js/api.js"></script>
+
+  <!-- Scripts -->
   <script src="js/header.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/login.js"></script>
-  <script src="js/account-access.js"></script>
-  <script>function switchLoginTab(t){document.getElementById("tab-login").classList.toggle("active","login"===t);document.getElementById("tab-cadastro").classList.toggle("active","cadastro"===t);document.getElementById("tab-login-btn").classList.toggle("active","login"===t);document.getElementById("tab-cadastro-btn").classList.toggle("active","cadastro"===t);}</script>
-  <!-- OFFLINE HANDLER: Must be last so it overrides obfuscated API calls -->
-  <script src="js/offline-login.js"></script>
+
+  <script>
+    // Gerenciamento de Alertas e Notificações da Autenticação
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const error = urlParams.get('error');
+      const logout = urlParams.get('logout');
+      const alertsContainer = document.getElementById('login-alerts');
+
+      if (!alertsContainer) return;
+
+      if (error) {
+        alertsContainer.style.display = 'block';
+
+        if (error === 'not_in_guild') {
+          alertsContainer.className = 'escrivao-alert escrivao-alert-danger';
+          alertsContainer.innerHTML = `
+            <i class="fa-solid fa-circle-xmark"></i>
+            <div>
+              <strong>Acesso Negado</strong><br>
+              Seu usuário do Discord não pertence ao servidor autorizado.
+            </div>
+          `;
+        } else if (error === 'missing_role') {
+          alertsContainer.className = 'escrivao-alert escrivao-alert-danger';
+          alertsContainer.innerHTML = `
+            <i class="fa-solid fa-user-xmark"></i>
+            <div>
+              <strong>Acesso Negado</strong><br>
+              Você não possui o cargo necessário para acessar a Central do Escrivão.
+            </div>
+          `;
+        } else if (error === 'unauthorized') {
+          alertsContainer.className = 'escrivao-alert escrivao-alert-warning';
+          alertsContainer.innerHTML = `
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <strong>Área Restrita</strong><br>
+              É necessário autenticar-se para acessar os recursos da Central do Escrivão.
+            </div>
+          `;
+        } else if (error === 'auth_failed') {
+          alertsContainer.className = 'escrivao-alert escrivao-alert-danger';
+          alertsContainer.innerHTML = `
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div>
+              <strong>Falha na Autenticação</strong><br>
+              Não foi possível concluir o login pelo Discord. Tente novamente.
+            </div>
+          `;
+        } else if (error === 'missing_config') {
+          alertsContainer.className = 'escrivao-alert escrivao-alert-warning';
+          alertsContainer.innerHTML = `
+            <i class="fa-solid fa-gear"></i>
+            <div>
+              <strong>Configuração Necessária</strong><br>
+              Credenciais do Discord (Client ID / Secret) pendentes no arquivo <code>.env</code>.
+            </div>
+          `;
+        }
+
+        // Limpar parâmetros da URL para manter a barra limpa
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+      } else if (logout === 'true') {
+        alertsContainer.style.display = 'block';
+        alertsContainer.className = 'escrivao-alert escrivao-alert-info';
+        alertsContainer.innerHTML = `
+          <i class="fa-solid fa-circle-check"></i>
+          <div>Sessão encerrada com sucesso.</div>
+        `;
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+      }
+
+      // Consulta de status da API para orientar no ambiente local de testes
+      fetch('/api/auth/config-status')
+        .then(res => res.json())
+        .then(data => {
+          const devHint = document.getElementById('dev-mode-hint');
+          if (!data.configured && devHint) {
+            devHint.style.display = 'block';
+            devHint.innerHTML = `
+              <div style="font-weight:700;margin-bottom:4px;color:#d4a359;">
+                <i class="fa-solid fa-laptop-code"></i> Modo de Demonstração / Testes
+              </div>
+              <div>Configure o <code>.env</code> para conectar ao Discord oficial.</div>
+              <div style="margin-top:6px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
+                <a href="/auth/dev-login" style="color:#38bdf8;">[ Simular Acesso Escrivão ]</a>
+                <a href="/auth/dev-login?mode=not_in_guild" style="color:#fca5a5;">[ Testar Sem Servidor ]</a>
+                <a href="/auth/dev-login?mode=missing_role" style="color:#fca5a5;">[ Testar Sem Cargo ]</a>
+              </div>
+            `;
+          }
+        })
+        .catch(() => {});
+    })();
+
+    // Ação do Botão Secundário do Aplicativo Desktop
+    function mostrarAvisoDesktop() {
+      if (typeof window.mostrarAvisoIndisponivel === 'function') {
+        window.mostrarAvisoIndisponivel('O aplicativo Desktop (.EXE) da Central do Escrivão encontra-se em desenvolvimento e estará disponível para download em breve.');
+      } else {
+        alert('O aplicativo Desktop (.EXE) da Central do Escrivão encontra-se em desenvolvimento.');
+      }
+    }
+  </script>
 </body>
 </html>
